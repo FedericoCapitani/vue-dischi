@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section v-if="!loading">
+        <section class="tracks" v-if="!loading">
             <div class="container">
                 <div>
                 <Track :track="track" v-for="(track, index) in tracks" :key="index"/></div>
