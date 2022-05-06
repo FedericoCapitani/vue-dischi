@@ -2,12 +2,6 @@
     <div>
         <section class="tracks" v-if="!loading">
             <div class="container">
-            <!-- <div class="card" v-for="(track, index) in tracks" :key="index">
-                <img :src="track.poster" alt="" />
-                <h2 class="info">{{ track.title}}</h2>
-                <div class="info">{{ track.author }}</div>
-                <div class="info">{{ track.year }}</div>
-            </div> -->
             <Track :track="track" v-for="track in filteredTracks" :key="track.title"/>
             </div>
         </section>
