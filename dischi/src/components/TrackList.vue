@@ -2,15 +2,13 @@
     <div>
         <section class="tracks" v-if="!loading">
             <div class="container">
-                <!-- <div>
-                <Track :track="track" v-for="track in tracks" :key="track.title"/></div>
-            </div> -->
-            <div class="card" v-for="(track, index) in tracks" :key="index">
+            <!-- <div class="card" v-for="(track, index) in tracks" :key="index">
                 <img :src="track.poster" alt="" />
                 <h2 class="info">{{ track.title}}</h2>
                 <div class="info">{{ track.author }}</div>
                 <div class="info">{{ track.year }}</div>
-            </div>
+            </div> -->
+            <Track :track="track" v-for="track in tracks" :key="track.title"/>
             </div>
         </section>
             <div v-else class="loading">
@@ -21,12 +19,12 @@
 
 <script>
 import axios from "axios";
-/* import Track from "@/components/TrackComponent"; */
+import Track from "@/components/TrackComponent";
 export default {
-  /* name: "TrackListComponent",
+  name: "TrackListComponent",
   components: {
     Track,
-  }, */
+  },
   data() {
     return {
       API_URL: "https://flynn.boolean.careers/exercises/api/array/music",
@@ -38,7 +36,8 @@ export default {
   methods: {
     callApi() {
       axios.get(this.API_URL).then((response) => {
-          this.tracks = response.data;
+        console.log(response);
+          this.tracks = response.data.response;
           this.loading = false;
         })
         .catch((error) => {

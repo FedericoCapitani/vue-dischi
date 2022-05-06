@@ -1,7 +1,7 @@
 <template>
-  <div class="card" >
+  <div class="card bg_card">
     <img :src="track.poster" alt="" />
-    <h2 class="info">{{ track.title}}</h2>
+    <h2 class="info_title">{{ track.title}}</h2>
     <div class="info">{{ track.author }}</div>
     <div class="info">{{ track.year }}</div>
   </div>
@@ -17,13 +17,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    h2{
+    .info_title{
+        text-align: center;
         color: white;
+        font-size: 1.5rem;
     }
     .info{
         text-align: center;
+        color: grey;
     }
-    .info > div{
-        color: gray;
+    .bg_card{
+        background-color: $sp-card;
     }
 </style>
