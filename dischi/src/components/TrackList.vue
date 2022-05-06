@@ -8,7 +8,7 @@
                 <div class="info">{{ track.author }}</div>
                 <div class="info">{{ track.year }}</div>
             </div> -->
-            <Track :track="track" v-for="track in tracks" :key="track.title"/>
+            <Track :track="track" v-for="track in filteredTracks" :key="track.title"/>
             </div>
         </section>
             <div v-else class="loading">
@@ -20,6 +20,7 @@
 <script>
 import axios from "axios";
 import Track from "@/components/TrackComponent";
+import state from '@/state.js';
 export default {
   name: "TrackListComponent",
   components: {
@@ -46,6 +47,14 @@ export default {
           this.error = `Sorry There is a problem! ${error}`;
         });
     },
+  },
+  computed: {
+    filteredTracks() {
+        return this.tracks.filter(track => {
+          return track.title.toLowerCase().includes(state.searchText.toLowerCase())
+        })
+     
+    }
   },
   mounted() {
     this.callApi();
