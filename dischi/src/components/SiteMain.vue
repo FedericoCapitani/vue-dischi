@@ -7,6 +7,7 @@
 <style lang="scss" scoped>
     main{
         background-color: $sp-main;
+        height: calc(100vh - 112px);
         padding: 2rem 0;
     }
 </style>
